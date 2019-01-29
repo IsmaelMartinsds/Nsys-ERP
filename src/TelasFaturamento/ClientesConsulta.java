@@ -395,6 +395,7 @@ public class ClientesConsulta extends javax.swing.JFrame {
         }
     }
     
+    
          private void F1AlternaFoco() {
         JRootPane rootPane = getRootPane();
         rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "foco");
