@@ -4,13 +4,18 @@ import FuncoesInternas.InverterData;
 import Beans.*;
 import FuncoesInternas.*;
 import Parametros.parametrosNS;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableModel;
 /*
  @author Tiago e Paulo
@@ -1097,6 +1102,18 @@ public class ProdutosConsulta extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_tabela_produtosKeyPressed
+    
+    private void F1AlternaFoco() {
+        JRootPane rootPane = getRootPane();
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "foco");
+        rootPane.getRootPane().getActionMap().put("foco", new AbstractAction("foco") {
+
+            public void actionPerformed(ActionEvent e) {
+                tabela_produtos.requestFocus();
+                tabela_produtos.setRowSelectionInterval(0, 0);
+            }
+        });
+        }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu MenuPopup;
