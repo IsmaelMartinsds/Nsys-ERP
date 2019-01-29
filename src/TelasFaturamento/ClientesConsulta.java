@@ -6,10 +6,15 @@ import FuncoesInternas.*;
 import Parametros.parametrosNS;
 import TelasVendas.PDV;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 import javax.swing.table.*;
 
 /*
@@ -390,6 +395,18 @@ public class ClientesConsulta extends javax.swing.JFrame {
         }
     }
     
+         private void F1AlternaFoco() {
+        JRootPane rootPane = getRootPane();
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "foco");
+        rootPane.getRootPane().getActionMap().put("foco", new AbstractAction("foco") {
+
+            public void actionPerformed(ActionEvent e) {
+            Tabela_Clientes.requestFocus();
+            Tabela_Clientes.setRowSelectionInterval(0, 0);
+            }
+        });
+        }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu MenuPopup;
     private javax.swing.JTable Tabela_Clientes;
